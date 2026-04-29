@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QCU Student Portal — Grades</title>
+  <link rel="icon" type="image/png" href="../images/QCU-logo.png" />
+  <link rel="stylesheet" href="../styles/dashboard-style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="nav-logo">
+          <img src="../images/QCU-logo.png" alt="QCU Logo" />
+        </div>
+        <div>
+          <span class="brand-title">QCUS-PORTAL</span>
+          <span class="brand-sub">Student Dashboard</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Dashboard navigation">
+        <a href="dashboard.html" class="nav-item">Dashboard</a>
+        <a href="events.html" class="nav-item">Events</a>
+        <a href="registration.html" class="nav-item">Registration Form</a>
+        <a href="grades.html" class="nav-item active">Grades</a>
+        <a href="digital-id.html" class="nav-item">Digital ID</a>
+        <a href="account.html" class="nav-item">Account</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button type="button" class="logout-button">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div>
+          <p class="user-greeting">Welcome back, Student!</p>
+          <h1 class="page-title">Grades</h1>
+        </div>
+        <div class="profile-card">
+          <div class="profile-avatar">NL</div>
+          <div>
+            <p class="profile-name">Neil Longbian</p>
+            <p class="profile-email">neillongbian@gmail.com</p>
+          </div>
+        </div>
+      </header>
+
+      <section class="view-section">
+        <div class="section-panel">
+          <div class="section-header">
+            <h2>Grades</h2>
+            <p>Grades are not available at the moment. This page will show your academic results once the system is connected.</p>
+          </div>
+          <div class="placeholder-block">
+            <span>📘</span>
+            <p>Please check back after the next portal deployment for grade details.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../scripts/dashboard-script.js"></script>
+</body>
+</html>
