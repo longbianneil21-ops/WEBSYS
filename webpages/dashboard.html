@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QCU Student Portal — Dashboard</title>
+  <link rel="icon" type="image/png" href="../images/QCU-logo.png" />
+  <link rel="stylesheet" href="../styles/dashboard-style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar-brand">
+        <div class="nav-logo">
+          <img src="../images/QCU-logo.png" alt="QCU Logo" />
+        </div>
+        <div>
+          <span class="brand-title">QCUS-PORTAL</span>
+          <span class="brand-sub">Student Dashboard</span>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Dashboard navigation">
+        <button type="button" class="nav-item active" data-section="dashboardSection">Dashboard</button>
+        <button type="button" class="nav-item" data-section="eventsSection">Events</button>
+        <button type="button" class="nav-item" data-section="registrationSection">Registration Form</button>
+        <button type="button" class="nav-item" data-section="gradesSection">Grades</button>
+        <button type="button" class="nav-item" data-section="digitalSection">Digital ID</button>
+        <button type="button" class="nav-item" data-section="accountSection">Account</button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button type="button" class="logout-button">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div>
+          <p class="user-greeting">Welcome back, Student!</p>
+          <h1 class="page-title">Dashboard</h1>
+        </div>
+        <div class="profile-card">
+          <div class="profile-avatar">NL</div>
+          <div>
+            <p class="profile-name">Neil Longbian</p>
+            <p class="profile-email">neillongbian@gmail.com</p>
+          </div>
+        </div>
+      </header>
+
+      <section id="dashboardSection" class="view-section">
+        <div class="dashboard-grid">
+          <div class="card card-large">
+            <div class="card-header">
+              <h2>Upcoming Events</h2>
+            </div>
+            <div class="event-list" id="eventList"></div>
+          </div>
+
+          <div class="card card-large overview-card">
+            <div class="card-header">
+              <h2>Academic Overview</h2>
+            </div>
+            <div class="overview-grid">
+              <div class="overview-item">
+                <span class="overview-label">Current GPA</span>
+                <strong>3.75</strong>
+                <span class="overview-note">Excellent standing</span>
+              </div>
+              <div class="overview-item">
+                <span class="overview-label">Enrolled Units</span>
+                <strong>21</strong>
+                <span class="overview-note">This semester</span>
+              </div>
+              <div class="overview-item">
+                <span class="overview-label">Year Level</span>
+                <strong>2nd Year</strong>
+                <span class="overview-note">Bachelor of Science in Computer Science</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="placeholder-grid">
+          <div class="card placeholder-card">
+            <h3>Grades</h3>
+            <p>No grades available yet. This section is reserved for grade data once the database connection is ready.</p>
+          </div>
+          <div class="card placeholder-card">
+            <h3>Digital ID</h3>
+            <p>Placeholder for the digital student ID. Your verified student ID will appear here after integration.</p>
+          </div>
+          <div class="card placeholder-card">
+            <h3>Account</h3>
+            <p>Account details are shown here once the full portal integration is complete.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="eventsSection" class="view-section hidden">
+        <div class="section-panel">
+          <div class="section-header">
+            <h2>Events</h2>
+            <p>Event details are displayed here. Admin-managed updates will be added later.</p>
+          </div>
+          <div class="event-list" id="eventListDetail"></div>
+        </div>
+      </section>
+
+      <section id="registrationSection" class="view-section hidden">
+        <div class="section-panel">
+          <div class="section-header">
+            <h2>Registration Form</h2>
+            <p>The registration module is not yet connected to the database. This placeholder will become active after the next update.</p>
+          </div>
+          <div class="placeholder-block">
+            <span>📝</span>
+            <p>Registration form functionality is under development and will be enabled once the backend is available.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="gradesSection" class="view-section hidden">
+        <div class="section-panel">
+          <div class="section-header">
+            <h2>Grades</h2>
+            <p>Grades are not available at the moment. This page will show your academic results once the system is connected.</p>
+          </div>
+          <div class="placeholder-block">
+            <span>📘</span>
+            <p>Please check back after the next portal deployment for grade details.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="digitalSection" class="view-section hidden">
+        <div class="section-panel">
+          <div class="section-header">
+            <h2>Digital ID</h2>
+            <p>Your digital ID card is a placeholder until student verification is completed.</p>
+          </div>
+          <div class="placeholder-block">
+            <span>🪪</span>
+            <p>This section will display your official QCUS digital student ID in the future.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="accountSection" class="view-section hidden">
+        <div class="section-panel">
+          <div class="section-header">
+            <h2>Account</h2>
+            <p>Account settings are currently a placeholder while we prepare secure profile and authentication support.</p>
+          </div>
+          <div class="placeholder-block">
+            <span>⚙️</span>
+            <p>Your profile and account actions will be activated after the database integration is complete.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="../scripts/dashboard-script.js"></script>
+</body>
+</html>
