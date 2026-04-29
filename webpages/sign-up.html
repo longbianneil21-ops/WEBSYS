@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../styles/signup-style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QCU Student Portal — Create Account</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+  
+  </style>
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- ── LEFT — FORM ── -->
+  <div class="left">
+    <h2 class="form-title">Create Account</h2>
+    <p class="form-subtitle">Fill in your details to get started</p>
+
+    <!-- Student ID -->
+    <div class="field-group">
+      <label class="field-label" for="studentId">Student ID Number <span class="req">*</span></label>
+      <div class="input-wrap">
+        <input class="field-input" type="text" id="studentId" placeholder="20XX-XXXXX" autocomplete="off" />
+      </div>
+      <p class="field-hint">Check your admission documents or visit the Registrar's Office</p>
+    </div>
+
+    <!-- First & Last Name -->
+    <div class="row-two">
+      <div class="field-group">
+        <label class="field-label" for="firstName">First Name <span class="req">*</span></label>
+        <div class="input-wrap">
+          <input class="field-input" type="text" id="firstName" placeholder="Juan" autocomplete="given-name" />
+        </div>
+      </div>
+      <div class="field-group">
+        <label class="field-label" for="lastName">Last Name <span class="req">*</span></label>
+        <div class="input-wrap">
+          <input class="field-input" type="text" id="lastName" placeholder="Dela Cruz" autocomplete="family-name" />
+        </div>
+      </div>
+    </div>
+
+    <!-- QCU Email -->
+    <div class="field-group">
+      <label class="field-label" for="email">QCU Email Address <span class="req">*</span></label>
+      <div class="input-wrap">
+        <input class="field-input" type="email" id="email" placeholder="your.name@qcu.edu.ph" autocomplete="email" />
+      </div>
+      <p class="field-hint">Use your official school-issued email address</p>
+    </div>
+
+    <!-- Password -->
+    <div class="field-group">
+      <label class="field-label" for="password">Password <span class="req">*</span></label>
+      <div class="input-wrap">
+        <input class="field-input" type="password" id="password" placeholder="Create a strong password" autocomplete="new-password" />
+        <button class="eye-btn" id="eyeBtn1" type="button" aria-label="Toggle password">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z"/><circle cx="8" cy="8" r="2"/></svg>
+        </button>
+      </div>
+      <p class="field-hint">At least 8 characters with numbers and symbols</p>
+    </div>
+
+    <!-- Confirm Password -->
+    <div class="field-group">
+      <label class="field-label" for="confirmPassword">Confirm Password <span class="req">*</span></label>
+      <div class="input-wrap">
+        <input class="field-input" type="password" id="confirmPassword" placeholder="Re-enter your password" autocomplete="new-password" />
+        <button class="eye-btn" id="eyeBtn2" type="button" aria-label="Toggle confirm password">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 8s2.5-5 7-5 7 5 7 5-2.5 5-7 5-7-5-7-5z"/><circle cx="8" cy="8" r="2"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Terms -->
+    <div class="terms-row">
+      <input type="checkbox" id="terms" />
+      <span>I agree to the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy</a></span>
+    </div>
+
+    <button class="btn-create" type="button">Create Account</button>
+
+    <div class="divider">Already have an account?</div>
+
+    <a href="login.html">
+        <button class="btn-login" type="button">Log In</button>
+    </a>
+
+    <a href="qcu-student-portal.html" class="back-home">Back to Home</a>
+  </div>
+
+  <!-- ── RIGHT — INFO ── -->
+  <div class="right">
+    <!-- Replace src below with your background image path -->
+    <img class="right-bg" src="../images/QCU-background.png" alt="" />
+    <div class="right-overlay"></div>
+    <div class="ring ring-1"></div>
+    <div class="ring ring-2"></div>
+
+    <!-- Replace src below with your logo path -->
+    <div class="logo-wrap">
+      <div class="logo-circle">
+        <img src="../images/QCU-logo.png" alt="University Logo" />
+      </div>
+    </div>
+
+    <div class="right-content">
+      <h1 class="join-title">Join QCU Portal!</h1>
+      <p class="univ-name">Quezon City University</p>
+      <p class="portal-label">Student Portal</p>
+
+      <p class="steps-title">Get Started in 4 Steps:</p>
+      <ul class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <div class="step-text">
+            <strong>Get Your Student ID</strong>
+            <span>From admission documents</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <div class="step-text">
+            <strong>Fill the Sign-Up Form</strong>
+            <span>Enter your details</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <div class="step-text">
+            <strong>Verify Your Email</strong>
+            <span>Check your QCU inbox</span>
+          </div>
+        </li>
+        <li>
+          <span class="step-num">4</span>
+          <div class="step-text">
+            <strong>Log In &amp; Explore</strong>
+            <span>Access all features</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+<script src="../scripts/singup-script.js">
+</script>
+
+</body>
+</html>

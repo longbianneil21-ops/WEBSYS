@@ -1,0 +1,301 @@
+ *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple-dark:   #1a0a4e;
+      --purple-mid:    #2d1480;
+      --purple-light:  #4a22b8;
+      --gold:          #c9991f;
+      --gold-hover:    #b38518;
+      --gold-light:    #e8b82a;
+      --white:         #ffffff;
+      --gray-100:      #f4f4f6;
+      --gray-300:      #d1d5db;
+      --gray-500:      #6b7280;
+      --gray-700:      #374151;
+      --gray-900:      #111827;
+      --radius:        10px;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f0eef8;
+      font-family: 'Inter', sans-serif;
+      padding: 2rem 1rem;
+    }
+    
+    .card {
+  display:flex;
+  width: 100%;
+  max-width: 950px;
+  min-height: 560px;
+  gap: 22px; /* 👈 THIS creates separation */
+  box-shadow: none;
+    }
+
+    /* ── LEFT PANEL ──────────────────────────────── */
+   .left {
+  flex: 0 0 42%;
+  background: linear-gradient(160deg, #2d1480 0%, #4a22b8 45%, #3b18a0 100%);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(30, 10, 80, 0.25);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 4.5rem 3rem;
+  overflow: hidden;
+  color: #fff;
+}
+
+    
+    /* Decorative arrowhead shapes */
+    .deco-arrows {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-40%);
+      opacity: 0.50;
+      pointer-events: none;
+    }
+    .deco-arrows img { 
+        object-fit: cover; /* makes image fill nicely */
+    }
+
+    /* Year watermark text */
+    .year-mark {
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.07);
+      letter-spacing: 4px;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* Logo placeholder */
+    .logo-wrap {
+      position: relative;
+      z-index: 2;
+      margin-bottom: 1.2rem;
+    }
+    .logo-circle {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      border: 3px solid rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .logo-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .left-content { position: relative; z-index: 2; text-align: center; width: 100%; }
+    .welcome-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+    .univ-name {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.9;
+      margin-bottom: 2px;
+    }
+    .portal-label {
+      font-size: 0.7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.65;
+      margin-bottom: 2rem;
+    }
+
+    .features { list-style: none; text-align: left; display: flex; flex-direction: column; gap: 12px; }
+    .features li { display: flex; align-items: center; gap: 10px; font-size: 0.82rem; opacity: 0.92; }
+    .check-circle {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .check-circle svg { width: 12px; height: 12px; }
+
+    /* ── RIGHT PANEL ─────────────────────────────── */
+   .right {
+  flex: 1;
+  background: var(--white);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3rem 2.8rem;
+}
+
+    .form-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--gray-900);
+      margin-bottom: 6px;
+    }
+    .form-subtitle { font-size: 0.85rem; color: var(--gray-500); margin-bottom: 1.8rem; }
+
+    .field-group { margin-bottom: 1.1rem; }
+    .field-label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--gray-700); margin-bottom: 6px; }
+
+    .input-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .input-icon {
+      position: absolute;
+      left: 12px;
+      color: var(--gray-500);
+      display: flex;
+    }
+    .input-icon svg { width: 16px; height: 16px; }
+
+    .field-input {
+      width: 100%;
+      padding: 10px 40px 10px 38px;
+      border: 1.5px solid var(--gray-300);
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      color: var(--gray-900);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+    }
+    .field-input::placeholder { color: var(--gray-300); }
+    .field-input:focus { border-color: var(--purple-light); box-shadow: 0 0 0 3px rgba(74,34,184,0.1); }
+
+    .eye-btn {
+      position: absolute;
+      right: 12px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--gray-500);
+      display: flex;
+      padding: 0;
+    }
+    .eye-btn svg { width: 16px; height: 16px; }
+
+    .row-options {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.4rem;
+    }
+    .remember-label {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      color: var(--gray-700);
+      cursor: pointer;
+    }
+    .remember-label input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      accent-color: var(--purple-light);
+      cursor: pointer;
+    }
+    .forgot-link {
+      font-size: 0.8rem;
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .forgot-link:hover { color: var(--gold-hover); text-decoration: underline; }
+
+    .btn-login {
+      width: 100%;
+      padding: 12px;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.5px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-login:hover { background: var(--gold-hover); }
+    .btn-login:active { transform: scale(0.98); }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 1.2rem 0;
+      color: var(--gray-300);
+      font-size: 0.78rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gray-300);
+    }
+
+    .btn-signup {
+      width: 100%;
+      padding: 11px;
+      background: transparent;
+      color: var(--gray-900);
+      border: 1.5px solid var(--gray-900);
+      border-radius: var(--radius);
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .btn-signup:hover { background: var(--gray-900); color: var(--white); }
+
+    .back-home {
+      display: block;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      text-decoration: none;
+    }
+    .back-home:hover { color: var(--purple-light); }
+    .back-home::before { content: '← '; }
+
+    /* Responsive */
+    @media (max-width: 680px) {
+      .card { flex-direction: column; max-width: 420px; }
+      .left { flex: none; padding: 2rem 1.5rem; }
+      .right { padding: 2rem 1.5rem; }
+      .features { display: none; }
+    }
