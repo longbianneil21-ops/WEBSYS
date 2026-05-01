@@ -438,16 +438,23 @@ html {
     cursor: pointer;
     background: var(--white);
   }
+  .service-card img {
+  width: 70px;
+  height: auto;
+  padding-bottom: 20px;
+}
+
  
   .service-card:hover {
     box-shadow: 0 8px 30px rgba(0,0,0,.1);
     transform: translateY(-4px);
   }
  
-  .service-icon {
-    font-size: 48px;
+  .service-icon svg{
+    
     margin-bottom: 20px;
     display: block;
+
   }
  
   .service-card h3 {
