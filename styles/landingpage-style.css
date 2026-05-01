@@ -227,7 +227,7 @@ html {
  
   /* ── STATS BAR ── */
   .stats-bar {
-    background: linear-gradient(135deg, #f0eaf8 0%, #fce4ec 100%);
+    background: rgb(238, 230, 187);
     display: flex;
     justify-content: center;
     gap: 0;
@@ -244,12 +244,21 @@ html {
  
   .stat-item:last-child { border-right: none; }
  
-  .stat-num {
+  .stat-num-1 {
     font-size: 48px;
     font-weight: 900;
     color: var(--gold);
     line-height: 1;
     margin-bottom: 8px;
+    color: blue;
+  }
+   .stat-num-2 {
+    font-size: 48px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 8px;
+    color: red;
   }
  
   .stat-label {
@@ -625,6 +634,11 @@ html {
     gap: 12px;
     background: var(--white);
   }
+  .contact-card img{
+    height: auto;
+    width:50px;
+  }
+ 
  
   .contact-icon {
     width: 52px;
