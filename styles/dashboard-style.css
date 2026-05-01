@@ -389,3 +389,29 @@ button {
     justify-content: space-between;
   }
 }
+/* Make topbar right side a flex row */
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chatbot-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: #7c3aed;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition: background .2s, transform .2s, box-shadow .2s;
+  box-shadow: 0 2px 8px rgba(15,23,42,.04);
+}
+
+.chatbot-btn:hover {
+  background: var(--accent-soft);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(91,33,182,.12);
+}
