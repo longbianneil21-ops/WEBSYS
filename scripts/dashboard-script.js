@@ -62,3 +62,4 @@ if (greetingText) {
   const storedId = window.localStorage.getItem('qcuStudentId');
   greetingText.textContent = storedId ? `Welcome back, ${storedId}!` : 'Welcome back, Student!';
 }
+
