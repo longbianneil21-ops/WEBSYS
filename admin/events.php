@@ -1,11 +1,9 @@
 <?php
+session_start();
 require_once '../php/config/db.php';
-require_once '../php/auth.php';
 
-requireAdmin();
-
-$admin = getCurrentUser();
-$admin_user = $admin['first_name'] . ' ' . $admin['last_name'];
+// Check if user is admin (you can add proper authentication here)
+$admin_user = 'Admin'; // Replace with actual session validation
 
 // Handle Delete
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete') {
@@ -157,38 +155,13 @@ if (isset($_GET['edit'])) {
         <aside class="sidebar">
             <div class="sidebar-brand">
                 <h2>QCU ADMIN</h2>
-                <p>Management Panel</p>
+                <p>Events Manager</p>
             </div>
-
             <nav class="sidebar-nav">
-                <a href="dashboard.php" class="nav-item">
-                    <span class="icon">📊</span>
-                    <span>Dashboard</span>
-                </a>
-                <a href="users.php" class="nav-item">
-                    <span class="icon">👥</span>
-                    <span>Users</span>
-                </a>
-                <a href="events.php" class="nav-item active">
-                    <span class="icon">📅</span>
-                    <span>Events</span>
-                </a>
-                <a href="grades.php" class="nav-item">
-                    <span class="icon">📝</span>
-                    <span>Grades</span>
-                </a>
-                <a href="schedules.php" class="nav-item">
-                    <span class="icon">⏰</span>
-                    <span>Schedules</span>
-                </a>
+                <a href="events.php" class="nav-item active">📅 Events</a>
+                <a href="../dashboard/dashboard.html" class="nav-item">🏠 Dashboard</a>
+                <a href="../landingpage/home.html" class="nav-item">🚪 Logout</a>
             </nav>
-
-            <div class="sidebar-footer">
-                <a href="../auth/logout.php" class="logout-link">
-                    <span class="icon">🚪</span>
-                    <span>Logout</span>
-                </a>
-            </div>
         </aside>
 
         <!-- Main Content -->
