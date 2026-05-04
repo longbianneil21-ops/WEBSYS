@@ -293,21 +293,21 @@
       <div class="stat-card blue">
         <div class="stat-info">
           <span class="stat-label">Total Units Enrolled</span>
-          <span class="stat-value">16</span>
+          <span class="stat-value" id="totalUnits">0</span>
         </div>
         <div class="stat-icon">📚</div>
       </div>
       <div class="stat-card amber">
         <div class="stat-info">
           <span class="stat-label">Enrolled Courses</span>
-          <span class="stat-value">6</span>
+          <span class="stat-value" id="enrolledCourses">0</span>
         </div>
         <div class="stat-icon">📋</div>
       </div>
       <div class="stat-card green">
         <div class="stat-info">
           <span class="stat-label">Semester</span>
-          <span class="stat-value large-text">2nd Sem 2025-2026</span>
+          <span class="stat-value large-text" id="semester">—</span>
         </div>
         <div class="stat-icon">📅</div>
       </div>
@@ -339,72 +339,13 @@
                 <th>Instructor</th>
               </tr>
             </thead>
-            <tbody>
-              <tr>
-                <td><span class="course-code">CS 101</span></td>
-                <td class="course-name-cell">Introduction to Computer Science</td>
-                <td><span class="section-pill">A</span></td>
-                <td><span class="units-val">3</span></td>
-                <td class="day-cell">Monday, Wednesday, Friday</td>
-                <td class="time-cell">9:00 AM - 10:30 AM</td>
-                <td class="room-cell">Room 301, Engineering Bldg</td>
-                <td class="prof-cell">Dr. Maria Santos</td>
-              </tr>
-              <tr>
-                <td><span class="course-code">MATH 201</span></td>
-                <td class="course-name-cell">Calculus II</td>
-                <td><span class="section-pill">B</span></td>
-                <td><span class="units-val">3</span></td>
-                <td class="day-cell">Tuesday, Thursday</td>
-                <td class="time-cell">10:45 AM - 12:15 PM</td>
-                <td class="room-cell">Room 205, Math Bldg</td>
-                <td class="prof-cell">Prof. Juan Dela Cruz</td>
-              </tr>
-              <tr>
-                <td><span class="course-code">ENG 103</span></td>
-                <td class="course-name-cell">Technical Writing</td>
-                <td><span class="section-pill">C</span></td>
-                <td><span class="units-val">3</span></td>
-                <td class="day-cell">Monday, Wednesday, Friday</td>
-                <td class="time-cell">1:00 PM - 2:30 PM</td>
-                <td class="room-cell">Room 102, Liberal Arts Bldg</td>
-                <td class="prof-cell">Dr. Ana Reyes</td>
-              </tr>
-              <tr>
-                <td><span class="course-code">PHYS 101</span></td>
-                <td class="course-name-cell">Physics for Engineers</td>
-                <td><span class="section-pill">A</span></td>
-                <td><span class="units-val">4</span></td>
-                <td class="day-cell">Tuesday, Thursday</td>
-                <td class="time-cell">2:45 PM - 4:45 PM</td>
-                <td class="room-cell">Room 401, Science Bldg</td>
-                <td class="prof-cell">Prof. Roberto Garcia</td>
-              </tr>
-              <tr>
-                <td><span class="course-code">PE 101</span></td>
-                <td class="course-name-cell">Physical Education - Fitness</td>
-                <td><span class="section-pill">D</span></td>
-                <td><span class="units-val">2</span></td>
-                <td class="day-cell">Saturday</td>
-                <td class="time-cell">8:00 AM - 10:00 AM</td>
-                <td class="room-cell">Sports Complex</td>
-                <td class="prof-cell">Coach Linda Fernandez</td>
-              </tr>
-              <tr>
-                <td><span class="course-code">CS 102L</span></td>
-                <td class="course-name-cell">Computer Programming Lab</td>
-                <td><span class="section-pill" style="font-size:10px;">A1</span></td>
-                <td><span class="units-val">1</span></td>
-                <td class="day-cell">Friday</td>
-                <td class="time-cell">3:00 PM - 5:00 PM</td>
-                <td class="room-cell">Computer Lab 3</td>
-                <td class="prof-cell">Engr. Mark Villanueva</td>
-              </tr>
+            <tbody id="scheduleTableBody">
+              <!-- Schedule data will be loaded here -->
             </tbody>
-            <tfoot>
+            <tfoot id="totalFooter">
               <tr class="total-row">
                 <td colspan="3" style="text-align:right;color:#475569;">Total Units:</td>
-                <td><span class="total-units-val">16</span></td>
+                <td><span class="total-units-val" id="totalUnitsFooter">0</span></td>
                 <td colspan="4"></td>
               </tr>
             </tfoot>
@@ -431,6 +372,61 @@
 </div>
 
 <script>
+  const API_URL = '../../WEBSYS/php/api/class-schedule.php';
+
+  // Load schedule data for current user's section
+  async function loadScheduleData() {
+    try {
+      // Get user's section from localStorage or default
+      const userSection = localStorage.getItem('userSection') || 'SBIT-1A';
+      
+      const response = await fetch(`${API_URL}?action=get&section=${encodeURIComponent(userSection)}`);
+      const data = await response.json();
+      
+      if (!data.success) throw new Error(data.error);
+      
+      const scheduleData = data.data || [];
+      const tableBody = document.getElementById('scheduleTableBody');
+      const totalUnitsFooter = document.getElementById('totalUnitsFooter');
+      const totalUnitsHeader = document.getElementById('totalUnits');
+      const enrolledCoursesHeader = document.getElementById('enrolledCourses');
+      
+      tableBody.innerHTML = '';
+      let totalUnits = 0;
+      
+      if (scheduleData.length === 0) {
+        tableBody.innerHTML = '<tr><td colspan="8" style="text-align:center; padding:32px; color:var(--text-muted);">No classes scheduled for your section yet. Check back later!</td></tr>';
+        totalUnitsFooter.textContent = '0';
+        totalUnitsHeader.textContent = '0';
+        enrolledCoursesHeader.textContent = '0';
+        return;
+      }
+      
+      scheduleData.forEach(course => {
+        totalUnits += parseInt(course.units) || 0;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td><span class="course-code">${course.course_code}</span></td>
+          <td class="course-name-cell">${course.course_name}</td>
+          <td><span class="section-pill">${course.course_section}</span></td>
+          <td><span class="units-val">${course.units}</span></td>
+          <td class="day-cell">${course.days}</td>
+          <td class="time-cell">${course.time}</td>
+          <td class="room-cell">${course.room}</td>
+          <td class="prof-cell">${course.instructor}</td>
+        `;
+        tableBody.appendChild(row);
+      });
+      
+      totalUnitsFooter.textContent = totalUnits;
+      totalUnitsHeader.textContent = totalUnits;
+      enrolledCoursesHeader.textContent = scheduleData.length;
+    } catch (error) {
+      console.error('Error loading schedule:', error);
+      document.getElementById('scheduleTableBody').innerHTML = '<tr><td colspan="8" style="text-align:center; padding:32px; color:var(--text-muted);">Error loading schedule data. Try refreshing the page.</td></tr>';
+    }
+  }
+
   function switchView(view) {
     const listView   = document.getElementById("listView");
     const weeklyView = document.getElementById("weeklyView");
@@ -449,6 +445,9 @@
       tabWeekly.classList.add("active");
     }
   }
+  
+  // Load data when page loads
+  document.addEventListener('DOMContentLoaded', loadScheduleData);
 </script>
 </body>
 </html>
