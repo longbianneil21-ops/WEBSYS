@@ -337,11 +337,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="divider">Already have an account?</div>
 
-    <a href="login.html">
+    <a href="login.php">
         <button class="btn-login" type="button">Log In</button>
     </a>
 
-    <a href="home.html" class="back-home">Back to Home</a>
+    <a href="home.php" class="back-home">Back to Home</a>
   </div>
 
   <!-- ── RIGHT — INFO ── -->

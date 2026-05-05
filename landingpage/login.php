@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $_SESSION['email'] = $user['email'];
                     $_SESSION['full_name'] = $user['first_name'] . ' ' . $user['last_name'];
                     $_SESSION['is_admin'] = true;
-                    redirect('WEBSYS/dashboard/admin-class-schedule.html');
+                    redirect('WEBSYS/dashboard/admin-class-schedule.php');
                 } else {
                     $error = 'Invalid email or password.';
                 }

@@ -22,16 +22,16 @@
       </div>
 
       <nav class="sidebar-nav" aria-label="Dashboard navigation">
-        <a href="dashboard.html" class="nav-item"><span class="nav-item-icon">🏠</span>Dashboard</a>
-        <a href="events.html" class="nav-item"><span class="nav-item-icon">📅</span>Events</a>
-        <a href="SchoolSched.html" class="nav-item"><span class="nav-item-icon">📋</span>Schedule</a>
-        <a href="grades.html" class="nav-item"><span class="nav-item-icon">📝</span>Grades</a>
-        <a href="digital-id.html" class="nav-item active"><span class="nav-item-icon">🪪</span>Digital ID</a>
-        <a href="account.html" class="nav-item"><span class="nav-item-icon">👤</span>Account</a>
+        <a href="dashboard.php" class="nav-item"><span class="nav-item-icon">🏠</span>Dashboard</a>
+        <a href="events.php" class="nav-item"><span class="nav-item-icon">📅</span>Events</a>
+        <a href="SchoolSched.php" class="nav-item"><span class="nav-item-icon">📋</span>Schedule</a>
+        <a href="grades.php" class="nav-item"><span class="nav-item-icon">📝</span>Grades</a>
+        <a href="digital-id.php" class="nav-item active"><span class="nav-item-icon">🪪</span>Digital ID</a>
+        <a href="account.php" class="nav-item"><span class="nav-item-icon">👤</span>Account</a>
       </nav>
 
       <div class="sidebar-footer">
-        <a href="../landingpage/home.html">
+        <a href="../landingpage/home.php">
           <button type="button" class="logout-button">Logout</button>
         </a>
       </div>

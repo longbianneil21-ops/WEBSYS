@@ -1,10 +1,4 @@
-<?php
-session_start();
-$u = NULL;
-if (isset($_SESSION['student_id'])) {
-    $u = ['student_id' => $_SESSION['student_id'], 'full_name' => $_SESSION['full_name']];
-}
-?><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <link rel="icon" type="image/png" href="../images/QCU-logo.png">
@@ -37,14 +31,12 @@ if (isset($_SESSION['student_id'])) {
     <li><a href="#contacts">CONTACTS</a></li>
   </ul>
   <div class="nav-actions">
-    <?php if ($u): ?>
-      <span style="color: white; margin-right: 15px;">Hello, <?php echo htmlspecialchars($u['full_name']); ?>!</span>
-      <a href="../dashboard/dashboard.php"><button class="btn-solid">Go to Dashboard</button></a>
-      <a href="logout.php"><button class="btn-outline">Log Out</button></a>
-    <?php else: ?>
-      <a href="login.php"><button class="btn-outline">Log in</button></a>
-      <a href="sign-up.php"><button class="btn-solid">SIGN UP</button></a>
-    <?php endif; ?>
+    <a href="login.php">
+      <button class="btn-outline">Log in</button>
+    </a>
+    <a href="sign-up.php">
+      <button class="btn-solid">SIGN UP</button>
+    </a>
   </div>
 </nav>
 
